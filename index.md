@@ -58,13 +58,6 @@ make local-up
 
 make コマンド実行後，しばらくしてから http://localhost:8080 にブラウザでアクセスしてください． ただし，Internet Explorerは対応していません．
 
-#### 起動後~デモを動かすまで
-ログインが必要です． まずは `admin` でログインをしてください． パスワードは `password` です．
-
-デモ用の講義「Demo Lecture」が用意されていますが， 最初に，この講義に必要なプログラム実行環境（サンドボックス）をインストールする必要があります． 「担当」→「講義」→「Demo Lecture」のリンクから，Demo Lecture の管理画面に移動してください． インストールが必要なサンドボックス一覧が表示されていますので，それぞれ「インストール」ボタンをクリックしてインストールを開始してください．
-
-「講義ページへ」ボタンをクリックすると学生に提示する講義のページへ移動することができます(各ページの初回アクセス時にページ生成のための時間がかかりますが，キャッシュをとっているため，以降はあまり時間はかかりません)． サンドボックスのインストールが完了した後に，プログラム演習を行うことができます．
-
 #### 終了手順
 ````
 make local-down
@@ -134,3 +127,37 @@ npm install
 ```
 
 Then, open Hugin.sln and run with docker-compose profile
+
+
+## 実環境での実行
+
+実環境(https)での実行手順について説明します．
+
+ドメイン，サーバー証明書（および必要であれば中間証明書）が必要となります．
+
+
+### Ubuntu 20.04 (without Docker)
+
+最も推奨する方法です．
+
+#### pfxファイルの生成
+
+下記コマンドによりpfxファイルを生成します．
+ただし，`your.key`, `your.crt`, `your-ca.cer` はそれぞれ 鍵ファイル, サーバー証明書, 中間証明書とします:
+```
+openssl pkcs12 -export -out server.pfx -inkey your.key -in your.crt -certfile your-ca.cer
+```
+中間証明書がない場合は代わりに下記コマンドを実行してください:
+```
+openssl pkcs12 -export -out server.pfx -inkey your.key -in your.crt
+```
+
+以下，執筆予定
+
+### macOS (with Docker Desktop on Mac)
+
+以下，執筆予定
+
+### macOS (without Docker)
+
+準備中
