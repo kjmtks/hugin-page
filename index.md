@@ -83,7 +83,7 @@ wget https://kjmtks.github.io/hugin-page/res/environments-for-development.sh
 # アプリケーションを公開するURL．ポート8080 を指定してください．末尾にスラッシュを書かないでください．
 export APP_URL="http://your-host-name:8080"
 
-# アプリケーションのシークレットキー．流出しても致命的ではありません．32文字以上必要です．
+# アプリケーションのシークレットキー．32文字以上必要です．
 export APP_SECRET_KEY="your-secret-key(need-32-characters)" 
 
 # データベースのユーザー名．まだ存在しないユーザー名にしてください． hugin でかまいません．
@@ -165,7 +165,7 @@ wget https://kjmtks.github.io/hugin-page/res/environments-for-production.sh
 # アプリケーションを公開するURL．末尾にスラッシュを書かないでください．
 export APP_URL="https://your-host-name"
 
-# アプリケーションのシークレットキー．流出しても致命的ではありません．32文字以上必要です．
+# アプリケーションのシークレットキー．32文字以上必要です．
 export APP_SECRET_KEY="your-secret-key(need-32-characters)" 
 
 # データベースのユーザー名．まだ存在しないユーザー名にしてください． hugin でかまいません．
