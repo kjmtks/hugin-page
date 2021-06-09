@@ -1,4 +1,4 @@
-export APP_URL="http://your-host-name"
+export APP_URL="http://your-host-name:8080"
 export APP_SECRET_KEY="your-secret-key(need-32-characters)"
 export POSTGRES_USER="your-db-user-for-hugin"
 export POSTGRES_PASSWORD="your-db-user-password-for-hugin"
