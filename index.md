@@ -162,8 +162,8 @@ wget https://kjmtks.github.io/hugin-page/res/environments-for-production.sh
 以下の環境変数は必ず自分の環境に合わせて記述してください:
 
 ```
-# アプリケーションを公開するURL．ポート8080 を指定してください．末尾にスラッシュを書かないでください．
-export APP_URL="http://your-host-name:8080"
+# アプリケーションを公開するURL．末尾にスラッシュを書かないでください．
+export APP_URL="https://your-host-name"
 
 # アプリケーションのシークレットキー．流出しても致命的ではありません．32文字以上必要です．
 export APP_SECRET_KEY="your-secret-key(need-32-characters)" 
