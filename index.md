@@ -108,9 +108,10 @@ sudo -E dotnet Hugin.dll
 `Ctrl+C` で終了できます．
 
 ### Azure (without Docker)
-無料枠でも利用できる Ubuntu 20.04 Server のインスタンスを作成，上記 Ubuntu 20.04 と同じ手順で試用できます．
+無料枠でも利用できる Ubuntu 20.04 Server のインスタンス上で，上記 Ubuntu 20.04 と同じ手順で試用できます．
 
-メモリは2~4GB, ストレージは標準のもので十分です．8080版ポートの開放が必要です．
+メモリは2~4GB, ストレージは標準のもので十分です．
+8080番ポートの開放が必要です．
 
 ### VisualStudio (for developers)
 開発者向けです．
@@ -152,12 +153,65 @@ openssl pkcs12 -export -out server.pfx -inkey your.key -in your.crt -certfile yo
 openssl pkcs12 -export -out server.pfx -inkey your.key -in your.crt
 ```
 
-以下，執筆予定
+#### 設定ファイルの入手
+```
+wget https://kjmtks.github.io/hugin-page/res/environments-for-production.sh
+```
+
+入手した `environments-for-production.sh` を適切に編集してください．
+以下の環境変数は必ず自分の環境に合わせて記述してください:
+
+```
+# アプリケーションを公開するURL．ポート8080 を指定してください．末尾にスラッシュを書かないでください．
+export APP_URL="http://your-host-name:8080"
+
+# アプリケーションのシークレットキー．流出しても致命的ではありません．32文字以上必要です．
+export APP_SECRET_KEY="your-secret-key(need-32-characters)" 
+
+# データベースのユーザー名．まだ存在しないユーザー名にしてください． hugin でかまいません．
+export POSTGRES_USER="your-db-user-for-hugin"
+
+# 上記ユーザーのパスワード．
+export POSTGRES_PASSWORD="your-db-user-password-for-hugin"
+
+# 前節で作成した server.pfx へのパス
+export ASPNETCORE_Kestrel__Certificates__Default__Path="path-to-your-pfx"
+
+# server.pfx のパスワード
+export ASPNETCORE_Kestrel__Certificates__Default__Password="password-for-pfx"
+```
+
+#### インストール
+```
+curl https://kjmtks.github.io/hugin-page/res/installer-ubuntu20.04-production.sh | /bin/bash -
+```
+
+#### 実行
+```
+source environments-for-production.sh
+cd hugin-lms/Hugin/out/
+sudo -E nohup dotnet Hugin.dll > /dev/null 2>&1 &
+```
 
 ### macOS (with Docker Desktop on Mac)
 
-以下，執筆予定
+[Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/) が必要です．
 
-### macOS (without Docker)
+#### ソースコードの入手と設定
+```
+git clone https://github.com/kjmtks/hugin-lms.git
+cd Hugin
+```
 
-準備中
+自分の環境に合わせて `docker-compose.production.override.yml` ファイルを適切に編集してください．
+
+#### 実行
+
+```
+make production-up
+```
+
+#### 終了手順
+````
+make production-down
+````
