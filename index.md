@@ -31,7 +31,7 @@ test003   | password
 
 ## 試用方法
 
-動作を確認するための方法について説明します．
+自身の環境で動作を確認する方法を説明します．
 
 以下に環境毎の操作手順を示します．
 インストールおよび起動完了後にデモを動かすための手順は [YouTube](https://www.youtube.com/watch?v=Yvm4sSdc58M) で説明しています．
@@ -58,7 +58,7 @@ make local-up
 
 make コマンド実行後，しばらくしてから http://localhost:8080 にブラウザでアクセスしてください． ただし，Internet Explorerは対応していません．
 
-#### 終了手順
+#### 終了
 ````
 make local-down
 ````
@@ -211,7 +211,7 @@ cd Hugin
 make production-up
 ```
 
-#### 終了手順
+#### 終了
 ````
 make production-down
 ````
