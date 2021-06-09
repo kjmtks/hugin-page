@@ -45,8 +45,3 @@ mkdir -p $APP_DATA_PATH
 mkdir -p $PATH_TO_PROTECTION_KEY
 
 PATH="$PATH:~/.dotnet/tools/" dotnet ef database update
-
-# Execute
-# cd out; sudo -E dotnet out/Hugin.dll
-# or, cd out; sudo -E nohup dotnet Hugin.dll > /dev/null 2>&1 &
-
