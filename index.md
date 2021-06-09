@@ -1,1 +1,136 @@
 # Hugin
+
+任意の言語のプログラミング演習をウェブブラウザで実施できる LMS である [hugin-lms](https://github.com/kjmtks/hugin-lms) の解説ページです．
+本システムはプログラミング演習のほか，自由記述形，ファイル提出，フォーム入力の課題を課すこともできます．
+
+コンテンツはテキストで記述します，このシステム自体がGitのリモートリポジトリとしても振る舞い， 
+GitHubのようにGitのコマンドでコンテンツの入手・更新ができます． また，ウェブからもコンテンツの編集が可能です．
+
+そのほか，以下の機能を有しています:
+
+* 単体テストによる課題の自動チェック
+* 提出課題への手動フィードバック，最終成績のCSV出力
+* 任意のプログラム実行環境の構築
+* 学生の学習行動の可視化，オンライン状態の監視，全行動の記録，
+* LDAP認証の利用（LDAPを使用しない認証との併用も可）
+* スタイラスペンによるページへの書き込み
+* 講義コンテンツ，プログラム実行環境(サンドボックス)，課題(アクティビティ)のひな形をウェブからインポート
+
+
+## デモサイト
+
+[https://hugin-lms.net/](https://hugin-lms.net/)
+
+デモサイトのユーザーアカウントとパスワード:
+
+アカウント | パスワード
+----------|-----------
+test001   | password
+test002   | password
+test003   | password
+
+## 試用方法
+
+動作を確認するための方法について説明します．
+
+以下に環境毎の操作手順を示します．
+インストールおよび起動完了後にデモを動かすための手順は [YouTube](https://www.youtube.com/watch?v=Yvm4sSdc58M) で説明しています．
+
+初期ユーザーのアカウントとパスワード:
+
+アカウント | パスワード
+----------|-----------
+admin     | password
+test001   | password
+test002   | password
+test003   | password
+
+### Windows (WSL2 + Docker Desktop)
+
+[WSL2](https://docs.microsoft.com/ja-jp/windows/wsl/install-win10) + [Docker Desktop](https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-containers#install-docker-desktop) の準備が必要です．
+
+#### ソースコードの入手と実行
+```
+git clone https://github.com/kjmtks/hugin-lms.git
+cd Hugin
+make local-up
+```
+
+make コマンド実行後，しばらくしてから http://localhost:8080 にブラウザでアクセスしてください． ただし，Internet Explorerは対応していません．
+
+#### 起動後~デモを動かすまで
+ログインが必要です． まずは `admin` でログインをしてください． パスワードは `password` です．
+
+デモ用の講義「Demo Lecture」が用意されていますが， 最初に，この講義に必要なプログラム実行環境（サンドボックス）をインストールする必要があります． 「担当」→「講義」→「Demo Lecture」のリンクから，Demo Lecture の管理画面に移動してください． インストールが必要なサンドボックス一覧が表示されていますので，それぞれ「インストール」ボタンをクリックしてインストールを開始してください．
+
+「講義ページへ」ボタンをクリックすると学生に提示する講義のページへ移動することができます(各ページの初回アクセス時にページ生成のための時間がかかりますが，キャッシュをとっているため，以降はあまり時間はかかりません)． サンドボックスのインストールが完了した後に，プログラム演習を行うことができます．
+
+#### 終了手順
+````
+make local-down
+````
+
+### macOS (with Docker)
+
+WSL2 + Docker Desktop の代わりに，[Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/) をインストールしていれば，上記 Windows と同じ手順で試用できます．
+
+### Ubuntu 20.04 (without Docker)
+
+`sudo` を実行できるユーザーで以下の手順に従い操作を行ってください．
+
+#### 設定ファイルの入手
+```
+wget https://kjmtks.github.io/hugin-page/res/environments-for-development.sh
+```
+
+入手した `environments-for-development.sh` を適切に編集してください．
+以下の環境変数は必ず自分の環境に合わせて記述してください:
+
+```
+# アプリケーションを公開するURL．ポート8080 を指定してください．末尾にスラッシュを書かないでください．
+export APP_URL="http://your-host-name:8080"
+
+# アプリケーションのシークレットキー．流出しても致命的ではありません．32文字以上必要です．
+export APP_SECRET_KEY="your-secret-key(need-32-characters)" 
+
+# データベースのユーザー名．まだ存在しないユーザー名にしてください． hugin でかまいません．
+export POSTGRES_USER="your-db-user-for-hugin"
+
+# 上記ユーザーのパスワード．
+export POSTGRES_PASSWORD="your-db-user-password-for-hugin"
+```
+
+#### インストール
+```
+curl https://kjmtks.github.io/hugin-page/res/installer-ubuntu20.04-development.sh | /bin/bash -
+```
+
+#### 実行
+```
+source environments-for-development.sh
+cd hugin-lms/Hugin/out/
+sudo -E dotnet Hugin.dll
+```
+
+`Ctrl+C` で終了できます．
+
+### Azure (without Docker)
+無料枠でも利用できる Ubuntu 20.04 Server のインスタンスを作成，上記 Ubuntu 20.04 と同じ手順で試用できます．
+
+メモリは2~4GB, ストレージは標準のもので十分です．8080版ポートの開放が必要です．
+
+### VisualStudio (for developers)
+開発者向けです．
+
+Requirements:
+
+* Visual Studio 2019
+* Docker Desktop
+
+```
+git clone https://github.com/kjmtks/hugin-lms.git
+cd Hugin/Hugin
+npm install
+```
+
+Then, open Hugin.sln and run with docker-compose profile
