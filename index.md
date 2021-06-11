@@ -197,6 +197,11 @@ cd hugin-lms/Hugin/out/
 sudo -E nohup dotnet Hugin.dll > /dev/null 2>&1 &
 ```
 
+#### アップデートと再起動
+```
+curl https://kjmtks.github.io/hugin-page/res/update-ubuntu20.04-production.sh | /bin/bash -
+```
+
 ### macOS (with Docker Desktop on Mac)
 
 [Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/) が必要です．
