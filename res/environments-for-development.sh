@@ -15,3 +15,4 @@ export DB_CONNECTION_STR="Host=localhost; Database=$POSTGRES_DB; Port=5432; User
 export PATH_TO_PROTECTION_KEY="$HOME/hugin-data-protection-dev"
 export ASPNETCORE_Kestrel__Certificates__Default__Path=""
 export ASPNETCORE_Kestrel__Certificates__Default__Password=""
+export RENDER_TIME_LIMIT=5
