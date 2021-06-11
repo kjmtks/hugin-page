@@ -72,6 +72,18 @@ HTMLエンコードされた文字列をデコードする．
 {{ get_parameter("deadline") }}
 ```
 
+### `has_parameter`
+
+ページの場合は講義パラメータ，アクティビティの場合は講義パラメータまたはページから渡されたパラメータが存在するか否かを判定する．
+
+* 引数: `string` パラメータの名前
+* 戻り値: `bool` パラメータが存在するか否か
+
+使用例:
+```
+{{ get_parameter("deadline") }}
+```
+
 ### `date_time_to_string`
 
 `date`, `datetime` 型の値をHugin標準の表示形式の文字列に変換する．
