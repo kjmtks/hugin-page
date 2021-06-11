@@ -61,7 +61,7 @@ Scriban から，Hugin独自の関数を呼び出したり，講義やユーザ�
 
 使用例:
 ```
-{{ is_null_or_whitespace("this is not empty string") }}
+\{{ is_null_or_whitespace("this is not empty string") \}}
 ```
 
 ### `encode_html`
