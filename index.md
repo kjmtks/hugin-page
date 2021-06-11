@@ -29,6 +29,10 @@ test001   | password
 test002   | password
 test003   | password
 
+## ドキュメント
+
+* [コンテンツの記述について](https://kjmtks.github.io/hugin-page/describe-contents)
+
 ## 試用方法
 
 自身の環境で動作を確認する方法を説明します．
