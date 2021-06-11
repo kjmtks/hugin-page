@@ -33,7 +33,7 @@ Scriban から，Hugin独自の関数を呼び出したり，講義やユーザ�
 
 使用例:
 ```
-{{ is_null_or_whitespace("this is not empty string") }}
+{% raw %}{{ is_null_or_whitespace("this is not empty string") }}{% endraw %}
 ```
 
 ### `encode_html`
@@ -45,7 +45,7 @@ Scriban から，Hugin独自の関数を呼び出したり，講義やユーザ�
 
 使用例:
 ```
-{{ encode_html("<>&\"") }}
+{% raw %}{{ encode_html("<>&\"") }}{% endraw %}
 ```
 
 ### `decode_html`
@@ -57,7 +57,7 @@ HTMLエンコードされた文字列をデコードする．
 
 使用例:
 ```
-{{ decode_html("&lt;a href=&quot;foo?a=1&amp;b=1&quot;&gt;send&lt;a&gt;") }}
+{% raw %}{{ decode_html("&lt;a href=&quot;foo?a=1&amp;b=1&quot;&gt;send&lt;a&gt;") }}{% endraw %}
 ```
 
 ### `get_parameter`
@@ -69,7 +69,7 @@ HTMLエンコードされた文字列をデコードする．
 
 使用例:
 ```
-{{ get_parameter("deadline") }}
+{% raw %}{{ get_parameter("deadline") }}{% endraw %}
 ```
 
 ### `has_parameter`
@@ -81,7 +81,7 @@ HTMLエンコードされた文字列をデコードする．
 
 使用例:
 ```
-{{ get_parameter("deadline") }}
+{% raw %}{{ get_parameter("deadline") }}{% endraw %}
 ```
 
 ### `date_time_to_string`
@@ -93,7 +93,7 @@ HTMLエンコードされた文字列をデコードする．
 
 使用例:
 ```
-{{ date_time_to_string(date.now) }}
+{% raw %}{{ date_time_to_string(date.now) }}{% endraw %}
 ```
 
 ### `embed_text_file`
@@ -105,7 +105,7 @@ HTMLエンコードされた文字列をデコードする．
 
 使用例:
 ```
-{{ embed_text_file("page/index.md") }}
+{% raw %}{{ embed_text_file("page/index.md") }}{% endraw %}
 ```
 
 
