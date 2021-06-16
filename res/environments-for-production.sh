@@ -26,4 +26,4 @@ export DB_CONNECTION_STR="Host=localhost; Database=$POSTGRES_DB; Port=5432; User
 export PATH_TO_PROTECTION_KEY="$HOME/hugin-data-protection"
 export RENDER_TIME_LIMIT=5
 
-export VER=78fe7e2fd3b0494eda65e358326ed17fc51dcc40
+export VER=origin/main
