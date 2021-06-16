@@ -16,3 +16,5 @@ export PATH_TO_PROTECTION_KEY="$HOME/hugin-data-protection-dev"
 export ASPNETCORE_Kestrel__Certificates__Default__Path=""
 export ASPNETCORE_Kestrel__Certificates__Default__Password=""
 export RENDER_TIME_LIMIT=5
+
+export vER=78fe7e2fd3b0494eda65e358326ed17fc51dcc40
