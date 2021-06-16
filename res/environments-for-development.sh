@@ -17,4 +17,4 @@ export ASPNETCORE_Kestrel__Certificates__Default__Path=""
 export ASPNETCORE_Kestrel__Certificates__Default__Password=""
 export RENDER_TIME_LIMIT=5
 
-export VER=78fe7e2fd3b0494eda65e358326ed17fc51dcc40
+export VER=origin/main
