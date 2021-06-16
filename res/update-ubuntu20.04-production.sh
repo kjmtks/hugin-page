@@ -3,7 +3,7 @@ source environments-for-production.sh
 cd hugin-lms
 git fetch origin main
 git reset --hard origin/main
-git reset $VER
+git reset --hard $VER
 
 cd Hugin
 rm -rf out
