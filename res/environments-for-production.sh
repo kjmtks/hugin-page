@@ -25,3 +25,5 @@ export ASPNETCORE_URLS="https://+:443"
 export DB_CONNECTION_STR="Host=localhost; Database=$POSTGRES_DB; Port=5432; Username=$POSTGRES_USER; Password=$POSTGRES_PASSWORD"
 export PATH_TO_PROTECTION_KEY="$HOME/hugin-data-protection"
 export RENDER_TIME_LIMIT=5
+
+export vER=78fe7e2fd3b0494eda65e358326ed17fc51dcc40
