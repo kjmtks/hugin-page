@@ -33,6 +33,8 @@ dotnet tool install --global dotnet-ef --version 5.0.5
 
 git clone https://github.com/kjmtks/hugin-lms.git
 cd hugin-lms/Hugin
+git reset --hard $VER
+
 npm install
 dotnet restore
 dotnet publish "Hugin.csproj" -c Release -o out
