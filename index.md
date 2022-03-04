@@ -39,7 +39,9 @@ test003   | password
 自身の環境で動作を確認する方法を説明します．
 
 以下に環境毎の操作手順を示します．
-インストールおよび起動完了後にデモを動かすための手順は [YouTube](https://www.youtube.com/watch?v=Yvm4sSdc58M) で説明しています．
+
+Dockerでインストールおよび起動完了後にデモを動かすための手順は [YouTube](https://www.youtube.com/watch?v=Yvm4sSdc58M) で説明しています．
+
 
 初期ユーザーのアカウントとパスワード:
 
